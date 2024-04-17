@@ -15,13 +15,43 @@ public class Calculator {
         this.c = c;
     }
 
-    public String getDerivative(Function f){
+
+    //Graphs a function on the front end
+    public String graph(Function f){
 
     }
 
+
+    public String getDerivative(Function f){
+        if(f.getF().equals("sin(x)"))
+        {
+            return "cos(x)";
+        }
+        else if(f.getF().equals("cos(x)"))
+        {
+            return "-sin(x)";
+        }
+        else if(f.getF().equals("tan(x)"))
+        {
+            return "sec^2(x)"
+        }
+        if(f.isPolynomial(f))
+        {
+            // Returns derivative using power rule
+            return (f.getF().substring(0,1)) + power + "x ^ " + (power - 1);
+        }
+        return null;
+    }
+
+
+
     public double getAreaUnderTheCurve(Function f, a, b)
     {
-
+        int reimannSum = 0;
+        for(int i = 0; i < Integer.MAX_VALUE; i++)
+        {
+            reimannSum += (b - a)/n *
+        }
     }
 
     public String getAntiDerivative(Function f){
