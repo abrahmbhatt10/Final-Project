@@ -6,6 +6,28 @@ public class Function extends Calculator{
         this.f = f;
     }
 
+    public double f(double x)
+    {
+        if(f.equals("sinx"))
+        {
+            return Math.sin(x);
+        }
+        else if(f.equals("cosx"))
+        {
+            return Math.cos(x);
+        }
+        else if(f.equals("x"))
+        {
+            return x;
+        }
+        else if(f.equals("x^2"))
+        {
+            return x * x;
+        }
+        return 1.0;
+    }
+
+
     // Tells whether a function is a polynomial or not
     public boolean isPolynomial(Function f)
     {
