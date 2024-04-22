@@ -45,4 +45,6 @@ public class Function extends Calculator{
     public void setF(String f) {
         this.f = f;
     }
+
+
 }
