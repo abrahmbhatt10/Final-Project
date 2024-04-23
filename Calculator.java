@@ -17,19 +17,13 @@ public class Calculator {
     }
 
 
-    //Graphs a function on the front end
-    public String graph(Function f){
-
-    }
-
-
     public double getDerivative(Function f, int x){
         double dx = 1 / Integer.MAX_VALUE;
         return (f.f(x + dx) - f.f(x)) / dx;
     }
 
     //Returns nth dervative
-    public double getNthDerivative(Function f, int n, int x)
+    /*public double getNthDerivative(Function f, int n, int x)
     {
         if(n == 0)
         {
@@ -41,6 +35,7 @@ public class Calculator {
             return getNthDerivative(getDerivative(f,x), n, x);
         }
     }
+    */
 
     public double getAreaUnderTheCurve(Function f, int a, int b)
     {
@@ -52,6 +47,7 @@ public class Calculator {
         return reimannSum;
     }
 
+    /*
     public String getTaylorPolynomial(Function f, int x, int k)
     {
         int sum = 0;
@@ -61,6 +57,7 @@ public class Calculator {
         }
         return sum;
     }
+     */
 
     public double getFactorial(int n)
     {
@@ -71,12 +68,14 @@ public class Calculator {
         return n * getFactorial(n - 1);
     }
 
-    public double getLagrangeRemainderBound(Function f, int x, int a, int n)
+    /*
+    public Function getLagrangeRemainderBound(Function f, int x, int a, int n)
     {
         double xOfM;
         double M = 1;
         return M /getFactorial(n+1) * (x - a) ^ (n+1);
     }
+     */
 
     public double getA() {
         return a;
