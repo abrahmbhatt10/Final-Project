@@ -60,6 +60,18 @@ public class GraphListener implements KeyListener {
                 f.setStringF("x^2");
                 window.graph(f);
                 break;
+            case KeyEvent.VK_UP:
+                f.setStringF("sinx");
+                window.graph(f);
+                break;
+            case KeyEvent.VK_DOWN:
+                f.setStringF("cosx");
+                window.graph(f);
+                break;
+            case KeyEvent.VK_Z:
+                f.setStringF("tanx");
+                window.graph(f);
+                break;
             /*
                 case KeyEvent.VK_UP:
                 int topOfPane = window.getInsets().top;
