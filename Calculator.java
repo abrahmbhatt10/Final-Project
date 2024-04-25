@@ -15,8 +15,7 @@ public class Calculator {
         this.power = power;
         this.c = c;
     }
-
-
+    
     public double getDerivative(Function f, int x){
         double dx = 1 / Integer.MAX_VALUE;
         return (f.f(x + dx) - f.f(x)) / dx;
