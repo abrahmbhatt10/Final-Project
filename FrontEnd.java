@@ -8,7 +8,7 @@ public class FrontEnd extends JFrame {
     public static int SCREEN_XOFFSET = 100;
     public static int SCREEN_YOFFSET = 100;
     private Function f;
-    double dx;
+    int dx;
     int x;
     int y;
 
@@ -19,7 +19,7 @@ public class FrontEnd extends JFrame {
         this.setTitle("Graph ");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        this.dx = (double)SCREEN_WIDTH / Integer.MAX_VALUE;
+        this.dx = SCREEN_WIDTH / Integer.MAX_VALUE;
     }
 
     // Graphs a function on the front end
@@ -40,45 +40,45 @@ public class FrontEnd extends JFrame {
             System.out.println("Drawing x line");
             g.drawLine(SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET, SCREEN_WIDTH, 0);
         }
-        else if(f != null && f.getStringF().equals("x^2"))
+        if(f != null && f.getStringF().equals("x^2"))
         {
             System.out.println("Drawing x^2 line");
             int x;
             for(int i = 0; i < Integer.MAX_VALUE; i++)
             {
                 x = (int) (i * dx);
-                y = (int)(x^2);
-                g.drawRect((int)x, y,(int)dx,y);
+                y = SCREEN_HEIGHT - (int)(x^2);
+                g.drawLine(SCREEN_XOFFSET + x,y,x + dx, y + dx);
             }
         }
-        else if(f != null && f.getStringF().equals("sinx"))
+        if(f != null && f.getStringF().equals("sinx"))
         {
-            System.out.println("Drawing x^2 line");
+            System.out.println("Drawing sinx line");
             for(int i = 0; i < Integer.MAX_VALUE; i++)
             {
                 x = (int) (i * dx);
-                y = (int)Math.sin(x);
-                g.drawRect((int)x, y,(int)dx,y);
+                y = SCREEN_HEIGHT - (int)Math.sin(x);
+                g.drawLine(x,y,x + dx, y + dx);
             }
         }
-        else if(f != null && f.getStringF().equals("cosx"))
+        if(f != null && f.getStringF().equals("cosx"))
         {
-            System.out.println("Drawing x^2 line");
+            System.out.println("Drawing cosx line");
             for(int i = 0; i < Integer.MAX_VALUE; i++)
             {
                 x = (int) (i * dx);
-                y = (int)Math.cos(x);
-                g.drawRect((int)x, y,(int)dx,(int)Math.cos(x));
+                y = SCREEN_HEIGHT - (int)Math.cos(x);
+                g.drawLine(x,y,x + dx, y + dx);
             }
         }
-        else if(f != null && f.getStringF().equals("tanx"))
+        if(f != null && f.getStringF().equals("tanx"))
         {
-            System.out.println("Drawing x^2 line");
+            System.out.println("Drawing tanx line");
             for(int i = 0; i < Integer.MAX_VALUE; i++)
             {
                 x = (int) (i * dx);
-                y = (int)Math.tan(x);
-                g.drawRect((int)x, y,(int)dx,(int)Math.tan(x));
+                y = SCREEN_HEIGHT - (int)Math.tan(x);
+                g.drawLine(x,y,x + dx, y + dx);
             }
         }
     }
