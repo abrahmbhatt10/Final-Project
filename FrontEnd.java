@@ -73,4 +73,20 @@ public class FrontEnd extends JFrame {
     public void setF(MathFunction f) {
         this.f = f;
     }
+
+    public static int getScreenWidth() {
+        return SCREEN_WIDTH;
+    }
+
+    public static int getScreenHeight() {
+        return SCREEN_HEIGHT;
+    }
+
+    public static int getScreenXoffset() {
+        return SCREEN_XOFFSET;
+    }
+
+    public static int getScreenYoffset() {
+        return SCREEN_YOFFSET;
+    }
 }

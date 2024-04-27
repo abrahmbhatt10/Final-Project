@@ -1,9 +1,11 @@
 public class MathFunction extends Calculator{
     private String stringF;
+    private FrontEnd window;
 
-    public MathFunction(double a, double b, double x, int n, int power, double c, String f) {
+    public MathFunction(double a, double b, double x, int n, int power, double c, String f, FrontEnd window) {
         super(a, b, x, n, power, c);
         this.stringF = f;
+        this.window = window;
     }
 
     public MathFunction()
@@ -17,7 +19,7 @@ public class MathFunction extends Calculator{
     {
         if(stringF.equals("sinx"))
         {
-            return 800 * Math.sin(x/100);
+            return window.getScreenHeight()* Math.sin(x/100);
         }
         else if(stringF.equals("cosx"))
         {

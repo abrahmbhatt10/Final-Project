@@ -46,7 +46,7 @@ public class GraphListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         // The keyCode lets you know which key was pressed
-        f = new MathFunction(1,1,1,1,1,1,"function");
+        f = new MathFunction(1,1,1,1,1,1,"function", window);
         window.setF(f);
             switch(e.getKeyCode())
             {
