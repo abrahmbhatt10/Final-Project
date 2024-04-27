@@ -48,9 +48,6 @@ public class GraphListener implements KeyListener {
         // The keyCode lets you know which key was pressed
         f = new MathFunction(1,1,1,1,1,1,"function");
         window.setF(f);
-        boolean runFlag = true;
-        while(runFlag)
-        {
             switch(e.getKeyCode())
             {
                 case KeyEvent.VK_LEFT:
@@ -63,7 +60,6 @@ public class GraphListener implements KeyListener {
                     window.graph(f);
                     break;
                 case KeyEvent.VK_E:
-                    runFlag = false;
                     break;
             /*
                 case KeyEvent.VK_UP:
@@ -89,6 +85,5 @@ public class GraphListener implements KeyListener {
              */
             }
             window.repaint();
-        }
     }
 }

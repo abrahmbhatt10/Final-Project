@@ -50,7 +50,7 @@ public class FrontEnd extends JFrame {
             System.out.println("Drawing x^2 line");
             x = 0;
             y = x * x;
-            for(int i = 0; i < Integer.MAX_VALUE; i++)
+            for(int i = 0; i < 10; i++)
             {
                 x1 = x + dx;
                 y1 = x1 * x1;
