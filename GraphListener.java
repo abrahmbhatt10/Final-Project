@@ -53,11 +53,9 @@ public class GraphListener implements KeyListener {
                 case KeyEvent.VK_LEFT:
                     System.out.println("Print left key pressed");
                     f.setStringF("x");
-                    window.graph(f);
                     break;
                 case KeyEvent.VK_RIGHT:
                     f.setStringF("x^2");
-                    window.graph(f);
                     break;
                 case KeyEvent.VK_E:
                     break;

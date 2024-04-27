@@ -27,10 +27,7 @@ public class FrontEnd extends JFrame {
         this.originY = SCREEN_HEIGHT - SCREEN_YOFFSET;
     }
 
-    // Graphs a function on the front end
-    public void graph(MathFunction f){
-        invalidate();
-    }
+
     // Paints a function on the front end
     public void paint(Graphics g)
     {
@@ -51,6 +48,10 @@ public class FrontEnd extends JFrame {
                 g.drawLine(convertMathXToGraph(x), convertMathYToGraph(y), convertMathXToGraph(x1), convertMathYToGraph(y1));
                 x = x1;
                 y = y1;
+                if(x >= SCREEN_WIDTH || y <= 0)
+                {
+                    break;
+                }
             }
         }
     }
