@@ -14,6 +14,11 @@ public class MathFunction extends Calculator{
         stringF = null;
     }
 
+    public double getDerivative(double x){
+        double dx = 0.001;
+        return (this.calcFunction(x + dx) - this.calcFunction(x)) / dx;
+    }
+
 
     public double calcFunction(double x)
     {

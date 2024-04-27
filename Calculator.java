@@ -17,11 +17,6 @@ public class Calculator extends JPanel {
         this.power = power;
         this.c = c;
     }
-    
-    public double getDerivative(MathFunction f, int x){
-        double dx = 1 / Integer.MAX_VALUE;
-        return (f.calcFunction(x + dx) - f.calcFunction(x)) / dx;
-    }
 
     //Returns nth dervative
     /*public double getNthDerivative(Function f, int n, int x)

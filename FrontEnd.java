@@ -42,9 +42,25 @@ public class FrontEnd extends JFrame {
             System.out.println("Drawing " + f.getStringF());
             x = 0;
             y = f.calcFunction(x);
+            g.setColor(Color.BLACK);
             for(int i = 0; i < Integer.MAX_VALUE; i++) {
                 x1 = x + dx;
                 y1 = f.calcFunction(x1);
+                g.drawLine(convertMathXToGraph(x), convertMathYToGraph(y), convertMathXToGraph(x1), convertMathYToGraph(y1));
+                x = x1;
+                y = y1;
+                if(x >= SCREEN_WIDTH || y <= 0)
+                {
+                    break;
+                }
+            }
+            // Drawing its derivative
+            x = 0;
+            y = f.calcFunction(x);
+            g.setColor(Color.RED);
+            for(int i = 0; i < Integer.MAX_VALUE; i++) {
+                x1 = x + dx;
+                y1 = f.getDerivative(x1);
                 g.drawLine(convertMathXToGraph(x), convertMathYToGraph(y), convertMathXToGraph(x1), convertMathYToGraph(y1));
                 x = x1;
                 y = y1;
