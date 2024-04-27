@@ -22,7 +22,7 @@ public class FrontEnd extends JFrame {
         this.setTitle("Graph ");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        this.dx = SCREEN_WIDTH / Integer.MAX_VALUE;
+        this.dx = 0.1;
         this.graphX = SCREEN_XOFFSET;
         this.graphY = SCREEN_HEIGHT - SCREEN_YOFFSET;
     }
@@ -50,7 +50,7 @@ public class FrontEnd extends JFrame {
             System.out.println("Drawing x^2 line");
             x = 0;
             y = x * x;
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < Integer.MAX_VALUE; i++)
             {
                 x1 = x + dx;
                 y1 = x1 * x1;
