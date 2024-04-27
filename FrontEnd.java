@@ -58,21 +58,13 @@ public class FrontEnd extends JFrame {
 
     public int convertMathXToGraph(double xValue)
     {
-        if(f.getStringF().equals("x")) {
-            return (int) (originX + (xValue));
-        }
-        else {
-            return (int) (originX + (xValue * 10));
-        }
+        return (int) (originX + (xValue));
     }
 
     public int convertMathYToGraph(double yValue)
     {
         return (int)(originY - (yValue));
     }
-
-
-
 
     public MathFunction getF() {
         return f;
