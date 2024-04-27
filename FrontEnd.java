@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class FrontEnd extends JFrame {
     public static int SCREEN_WIDTH = 1000;
-    public static int SCREEN_HEIGHT = 800;
+    public static int SCREEN_HEIGHT = 1000;
     public static int SCREEN_XOFFSET = 100;
     public static int SCREEN_YOFFSET = 100;
     private MathFunction f;
@@ -22,7 +22,7 @@ public class FrontEnd extends JFrame {
         this.setTitle("Graph ");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        this.dx = 0.01;
+        this.dx = 0.0001;
         this.originX = SCREEN_XOFFSET;
         this.originY = SCREEN_HEIGHT - SCREEN_YOFFSET;
     }
@@ -58,12 +58,17 @@ public class FrontEnd extends JFrame {
 
     public int convertMathXToGraph(double xValue)
     {
-        return (int)(originX + (xValue * 100));
+        if(f.getStringF().equals("x")) {
+            return (int) (originX + (xValue));
+        }
+        else {
+            return (int) (originX + (xValue * 10));
+        }
     }
 
     public int convertMathYToGraph(double yValue)
     {
-        return (int)(originY - (y * 10));
+        return (int)(originY - (yValue));
     }
 
 
