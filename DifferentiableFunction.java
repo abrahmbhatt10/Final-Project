@@ -1,3 +1,3 @@
-public class DifferentiableFunction extends Function{
+public class DifferentiableFunction extends MathFunction {
 
 }

@@ -1,6 +1,5 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.sql.SQLOutput;
 
 public class GraphListener implements KeyListener {
     public static final int BALL_START_RADIUS = 25,
@@ -9,7 +8,7 @@ public class GraphListener implements KeyListener {
             STEP_SIZE = 10;
     // Instance variables
     private FrontEnd window;
-    private Function f;
+    private MathFunction f;
 
     // Constructors
     public GraphListener() {
@@ -47,31 +46,25 @@ public class GraphListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         // The keyCode lets you know which key was pressed
-        f = new Function(1,1,1,1,1,1,"function");
+        f = new MathFunction(1,1,1,1,1,1,"function");
         window.setF(f);
-        switch(e.getKeyCode())
+        boolean runFlag = true;
+        while(runFlag)
         {
-            case KeyEvent.VK_LEFT:
-                System.out.println("Print left key pressed");
-                f.setStringF("x");
-                window.graph(f);
-                break;
-            case KeyEvent.VK_RIGHT:
-                f.setStringF("x^2");
-                window.graph(f);
-                break;
-            case KeyEvent.VK_UP:
-                f.setStringF("sinx");
-                window.graph(f);
-                break;
-            case KeyEvent.VK_DOWN:
-                f.setStringF("cosx");
-                window.graph(f);
-                break;
-            case KeyEvent.VK_Z:
-                f.setStringF("tanx");
-                window.graph(f);
-                break;
+            switch(e.getKeyCode())
+            {
+                case KeyEvent.VK_LEFT:
+                    System.out.println("Print left key pressed");
+                    f.setStringF("x");
+                    window.graph(f);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    f.setStringF("x^2");
+                    window.graph(f);
+                    break;
+                case KeyEvent.VK_E:
+                    runFlag = false;
+                    break;
             /*
                 case KeyEvent.VK_UP:
                 int topOfPane = window.getInsets().top;
@@ -94,8 +87,8 @@ public class GraphListener implements KeyListener {
                 break;
 
              */
+            }
+            window.repaint();
         }
-        window.repaint();
     }
-
 }

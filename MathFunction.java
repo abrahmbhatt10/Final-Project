@@ -1,19 +1,19 @@
-public class Function extends Calculator{
+public class MathFunction extends Calculator{
     private String stringF;
 
-    public Function(double a, double b, double x, int n, int power, double c, String f) {
+    public MathFunction(double a, double b, double x, int n, int power, double c, String f) {
         super(a, b, x, n, power, c);
         this.stringF = f;
     }
 
-    public Function()
+    public MathFunction()
     {
         super(0,0,0,0,0,0);
         stringF = null;
     }
 
 
-    public double f(double x)
+    public double calcFunction(double x)
     {
         if(stringF.equals("sinx"))
         {
@@ -36,7 +36,7 @@ public class Function extends Calculator{
 
 
     // Tells whether a function is a polynomial or not
-    public boolean isPolynomial(Function f)
+    public boolean isPolynomial(MathFunction f)
     {
         if(f.getStringF().compareTo("(x)") == -1)
         {

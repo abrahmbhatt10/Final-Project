@@ -1,4 +1,6 @@
-public class Calculator {
+import javax.swing.*;
+
+public class Calculator extends JPanel {
     private double a;
     private double b;
     private double x;
@@ -16,9 +18,9 @@ public class Calculator {
         this.c = c;
     }
     
-    public double getDerivative(Function f, int x){
+    public double getDerivative(MathFunction f, int x){
         double dx = 1 / Integer.MAX_VALUE;
-        return (f.f(x + dx) - f.f(x)) / dx;
+        return (f.calcFunction(x + dx) - f.calcFunction(x)) / dx;
     }
 
     //Returns nth dervative
@@ -36,12 +38,12 @@ public class Calculator {
     }
     */
 
-    public double getAreaUnderTheCurve(Function f, int a, int b)
+    public double getAreaUnderTheCurve(MathFunction f, int a, int b)
     {
         int reimannSum = 0;
         for(int i = 0; i < Integer.MAX_VALUE; i++)
         {
-            reimannSum += f.f(a + i*((b-a)/n)) * ((b-a)/n);
+            reimannSum += f.calcFunction(a + i*((b-a)/n)) * ((b-a)/n);
         }
         return reimannSum;
     }
@@ -92,7 +94,7 @@ public class Calculator {
         this.b = b;
     }
 
-    public double getX() {
+    public double get_X() {
         return x;
     }
 
