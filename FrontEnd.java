@@ -22,7 +22,7 @@ public class FrontEnd extends JFrame {
         this.setTitle("Graph ");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        this.dx = 0.1;
+        this.dx = 0.01;
         this.graphX = SCREEN_XOFFSET;
         this.graphY = SCREEN_HEIGHT - SCREEN_YOFFSET;
     }
@@ -54,7 +54,7 @@ public class FrontEnd extends JFrame {
             {
                 x1 = x + dx;
                 y1 = x1 * x1;
-                g.drawLine((int)(graphX + x),(int)(graphY - y),(int)(graphX + x1), (int)(graphX - y1));
+                g.drawLine((int)(graphX + (x * 100)),(int)(graphY - (y * 10)),(int)(graphX + (x1 * 100)), (int)(graphX - (y1 * 10)));
                 x = x1;
                 y = y1;
             }
