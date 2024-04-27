@@ -12,8 +12,8 @@ public class FrontEnd extends JFrame {
     double y;
     double x1;
     double y1;
-    int graphX;
-    int graphY;
+    int originX;
+    int originY;
 
 
     public FrontEnd() {
@@ -23,8 +23,8 @@ public class FrontEnd extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.dx = 0.01;
-        this.graphX = SCREEN_XOFFSET;
-        this.graphY = SCREEN_HEIGHT - SCREEN_YOFFSET;
+        this.originX = SCREEN_XOFFSET;
+        this.originY = SCREEN_HEIGHT - SCREEN_YOFFSET;
     }
 
     // Graphs a function on the front end
@@ -40,26 +40,33 @@ public class FrontEnd extends JFrame {
         // Drawing X-axis
         g.drawLine(SCREEN_XOFFSET,SCREEN_HEIGHT - SCREEN_YOFFSET,SCREEN_WIDTH - SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET);
 
-        if(f != null && f.getStringF().equals("x"))
+        if(f != null)
         {
-            System.out.println("Drawing x line");
-            g.drawLine(SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET, SCREEN_WIDTH, 0);
-        }
-        if(f != null && f.getStringF().equals("x^2"))
-        {
-            System.out.println("Drawing x^2 line");
+            System.out.println("Drawing " + f.getStringF());
             x = 0;
-            y = x * x;
-            for(int i = 0; i < Integer.MAX_VALUE; i++)
-            {
+            y = f.calcFunction(x);
+            for(int i = 0; i < Integer.MAX_VALUE; i++) {
                 x1 = x + dx;
-                y1 = x1 * x1;
-                g.drawLine((int)(graphX + (x * 100)),(int)(graphY - (y * 10)),(int)(graphX + (x1 * 100)), (int)(graphX - (y1 * 10)));
+                y1 = f.calcFunction(x1);
+                g.drawLine(convertMathXToGraph(x), convertMathYToGraph(y), convertMathXToGraph(x1), convertMathYToGraph(y1));
                 x = x1;
                 y = y1;
             }
         }
     }
+
+    public int convertMathXToGraph(double xValue)
+    {
+        return (int)(originX + (xValue * 100));
+    }
+
+    public int convertMathYToGraph(double yValue)
+    {
+        return (int)(originY - (y * 10));
+    }
+
+
+
 
     public MathFunction getF() {
         return f;
