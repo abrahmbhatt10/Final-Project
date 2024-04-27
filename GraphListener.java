@@ -57,7 +57,11 @@ public class GraphListener implements KeyListener {
                 case KeyEvent.VK_RIGHT:
                     f.setStringF("x^2");
                     break;
-                case KeyEvent.VK_E:
+                case KeyEvent.VK_UP:
+                    f.setStringF("sinx");
+                    break;
+                case KeyEvent.VK_DOWN:
+                    f.setStringF("cosx");
                     break;
             /*
                 case KeyEvent.VK_UP:

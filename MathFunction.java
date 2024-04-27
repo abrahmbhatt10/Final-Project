@@ -17,11 +17,11 @@ public class MathFunction extends Calculator{
     {
         if(stringF.equals("sinx"))
         {
-            return Math.sin(x);
+            return 800 * Math.sin(x/100);
         }
         else if(stringF.equals("cosx"))
         {
-            return Math.cos(x);
+            return 800 * Math.cos(x/100);
         }
         else if(stringF.equals("x"))
         {
