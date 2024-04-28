@@ -5,14 +5,20 @@ CS2 Final Project: Graphs
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class FrontEnd extends JFrame {
+public class FrontEnd extends JFrame implements ActionListener{
     // Instance Variables
     public static int SCREEN_WIDTH = 1000;
     public static int SCREEN_HEIGHT = 1000;
     public static int SCREEN_XOFFSET = 100;
     public static int SCREEN_YOFFSET = 100;
+
+    private JButton bGoBack;
+    GraphSelection gsWindow;
     private MathFunction f;
+
     double dx;
     double x;
     double y;
@@ -27,12 +33,24 @@ public class FrontEnd extends JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Graph ");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
         this.setVisible(true);
         this.dx = 0.0001;
-        this.originX = SCREEN_XOFFSET;
-        this.originY = SCREEN_HEIGHT - SCREEN_YOFFSET;
+        this.originX = (int) SCREEN_WIDTH/2;
+        this.originY = (int) SCREEN_HEIGHT/2;
+        JButton bGoBack = new JButton("Back To Graph Selection");
+        bGoBack.setBounds(10,10,200,30);
+        bGoBack.addActionListener(this);
+        add(bGoBack);
     }
 
+    public GraphSelection getGsWindow() {
+        return gsWindow;
+    }
+
+    public void setGsWindow(GraphSelection gsWindow) {
+        this.gsWindow = gsWindow;
+    }
 
     // Paints a function on the front end
     public void paint(Graphics g)
@@ -41,80 +59,42 @@ public class FrontEnd extends JFrame {
         g.drawRect(0,0,SCREEN_HEIGHT,SCREEN_WIDTH);
         g.fillRect(0,0,SCREEN_HEIGHT,SCREEN_WIDTH);
         g.setColor(Color.BLACK);
-        // Drawing Y-axis
-        g.drawLine(SCREEN_XOFFSET,SCREEN_YOFFSET,SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET);
-        g.drawString("Y - axis", SCREEN_XOFFSET / 2,SCREEN_YOFFSET);
-
-        // Drawing X-axis
-        g.drawLine(SCREEN_XOFFSET,SCREEN_HEIGHT - SCREEN_YOFFSET,SCREEN_WIDTH - SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET);
-        g.drawString("X - axis", SCREEN_WIDTH - SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET);
-        g.drawString("Press left arrow to graph y = x.", SCREEN_WIDTH - 250, SCREEN_YOFFSET);
-        g.drawString("Press right arrow to graph y = x^2.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
-        g.drawString("Press up arrow to graph y = sinx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 60);
-        g.drawString("Press down arrow to graph y = cosx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 90);
-        if(f != null)
-        {
-            for(int j = 0; j < 2; j++)
-            {
-                x = 0;
-                if(j == 0)
-                {
-                    g.setColor(Color.BLACK);
-                    // Drawing function
-                    System.out.println("Drawing " + f.getStringF());
-                    y = f.calcFunction(x);
-                }
-                else if(j == 1)
-                {
-                    // Drawing derivative
-                    g.setColor(Color.RED);
-                    // Drawing function
-                    System.out.println("Drawing derivative of " + f.getStringF());
-                    y = f.getDerivative(x);
-                }
-                for(int i = 0; i < Integer.MAX_VALUE; i++) {
-                    x1 = x + dx;
-                    if(j == 0)
-                    {
-                        y1 = f.calcFunction(x1);
-                    }
-                    else if(j == 1)
-                    {
-                        y1 = f.getDerivative(x1);
-                    }
-                    g.drawLine(convertMathXToGraph(x), convertMathYToGraph(y), convertMathXToGraph(x1), convertMathYToGraph(y1));
-                    x = x1;
-                    y = y1;
-                    if(x >= SCREEN_WIDTH || y <= 0)
-                    {
-                        break;
-                    }
-                }
-            }
-            if(f.isDisplayArea())
-            {
-                paintArea(g);
-            }
-        }
-    }
-
-    public void paintArea(Graphics g)
-    {
         if(f == null)
         {
             return;
         }
-        int reimannSum = 0;
-        g.setColor(Color.BLUE);
-        int x2;
-        int dx = SCREEN_WIDTH / 100;
-        for(int i = 0; i < 100; i++)
+        // Drawing Y-axis
+        f.drawYAxis(g);
+
+        // Drawing X-axis
+        f.drawXAxis(g);
+
+        /*
+        g.drawString("Press left arrow to graph y = x.", SCREEN_WIDTH - 250, SCREEN_YOFFSET);
+        g.drawString("Press right arrow to graph y = x^2.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
+        g.drawString("Press up arrow to graph y = sinx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 60);
+        g.drawString("Press down arrow to graph y = cosx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 90);
+        */
+
+        if(f.isDisplayArea())
         {
-            x2 = i * dx;
-            g.drawRect(convertMathXToGraph(x2), convertMathYToGraph(f.calcFunction(x2)), dx, (int)f.calcFunction(x2));
-            g.setColor(Color.ORANGE);
-            g.fillRect(convertMathXToGraph(x2), convertMathYToGraph(f.calcFunction(x2)), dx, (int)f.calcFunction(x2));
+            f.paintArea(g);
         }
+        for(int j = 0; j < 2; j++)
+        {
+                x = 0;
+                if(j == 1)
+                {
+                    // Drawing derivative
+                    f.paintDerivative(g);
+                }
+                else
+                {
+                        // Drawing function
+                        f.paintFunction(g);
+                }
+        }
+        g.setColor(Color.BLACK);
     }
 
     public int convertMathXToGraph(double xValue)
@@ -149,5 +129,30 @@ public class FrontEnd extends JFrame {
 
     public static int getScreenYoffset() {
         return SCREEN_YOFFSET;
+    }
+
+    public int getOriginX() {
+        return originX;
+    }
+
+    public void setOriginX(int originX) {
+        this.originX = originX;
+    }
+
+    public int getOriginY() {
+        return originY;
+    }
+
+    public void setOriginY(int originY) {
+        this.originY = originY;
+    }
+
+    public void actionPerformed(ActionEvent e){
+        if(gsWindow == null)
+        {
+            gsWindow = new GraphSelection();
+        }
+        gsWindow.setVisible(true);
+        setVisible(false);
     }
 }
