@@ -1,3 +1,10 @@
+/*
+Name: Agastya-Brahmbhatt
+Date: 4/27/2024
+CS2 Final Project: Graphs
+For the keyboard input, I copied the case codes from Mr. Blick's Final Project
+Resources code.
+ */
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

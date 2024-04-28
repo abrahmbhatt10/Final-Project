@@ -1,3 +1,9 @@
+/*
+Name: Agastya-Brahmbhatt
+Date: 4/27/2024
+CS2 Final Project: Graphs
+ */
+
 import javax.swing.*;
 import java.awt.event.*;
 

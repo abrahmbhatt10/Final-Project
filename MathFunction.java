@@ -1,3 +1,8 @@
+/*
+Name: Agastya-Brahmbhatt
+Date: 4/27/2024
+CS2 Final Project: Graphs
+ */
 public class MathFunction{
     // Instance Variables
     private String stringF;
@@ -31,27 +36,6 @@ public class MathFunction{
         return (this.calcFunction(x + dx) - this.calcFunction(x)) / dx;
     }
 
-    // Finds a Reimann Sum for a large value of n
-    public double getAreaUnderTheCurve(double a, double b)
-    {
-        int reimannSum = 0;
-        for(int i = 0; i < 100000; i++)
-        {
-            reimannSum += this.calcFunction(a + i*((b-a)/100000)) * ((b-a)/100000);
-        }
-        return reimannSum;
-    }
-
-    // Returns nth factorial of the parameter int n\
-    public double getFactorial(int n)
-    {
-        if(n >= 1)
-        {
-            return 1;
-        }
-        return n * getFactorial(n - 1);
-    }
-
     public double calcFunction(double x)
     {
         if(stringF.equals("sinx"))
@@ -71,17 +55,6 @@ public class MathFunction{
             return x * x;
         }
         return 1.0;
-    }
-
-
-    // Tells whether a function is a polynomial or not
-    public boolean isPolynomial(MathFunction f)
-    {
-        if(f.getStringF().compareTo("(x)") == -1)
-        {
-            return true;
-        }
-        return false;
     }
 
     public String getStringF() {

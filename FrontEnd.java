@@ -1,3 +1,8 @@
+/*
+Name: Agastya-Brahmbhatt
+Date: 4/27/2024
+CS2 Final Project: Graphs
+ */
 import javax.swing.*;
 import java.awt.*;
 
@@ -43,6 +48,10 @@ public class FrontEnd extends JFrame {
         // Drawing X-axis
         g.drawLine(SCREEN_XOFFSET,SCREEN_HEIGHT - SCREEN_YOFFSET,SCREEN_WIDTH - SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET);
         g.drawString("X - axis", SCREEN_WIDTH - SCREEN_XOFFSET, SCREEN_HEIGHT - SCREEN_YOFFSET);
+        g.drawString("Press left arrow to graph y = x.", SCREEN_WIDTH - 250, SCREEN_YOFFSET);
+        g.drawString("Press right arrow to graph y = x^2.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
+        g.drawString("Press up arrow to graph y = sinx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 60);
+        g.drawString("Press down arrow to graph y = cosx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 90);
         if(f != null)
         {
             for(int j = 0; j < 2; j++)
