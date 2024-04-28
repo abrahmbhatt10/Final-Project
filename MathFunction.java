@@ -14,6 +14,7 @@ public class MathFunction{
     private boolean displayArea = false;
 
     private double startX, endX, dx;
+    private double inputX;
 
     // Constructor
     public MathFunction(String fStr, FrontEnd window) {
@@ -34,6 +35,14 @@ public class MathFunction{
     {
         stringF = "x"; this.startX = 0; this.endX = 1000; this.dx = 0.01;
         window = null;
+    }
+
+    public double getInputX() {
+        return inputX;
+    }
+
+    public void setInputX(double inputX) {
+        this.inputX = inputX;
     }
 
     public FrontEnd getWindow() {

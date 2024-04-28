@@ -72,12 +72,12 @@ public class FrontEnd extends JFrame implements ActionListener{
         //Drawing Units
         f.drawUnits(g);
 
-        /*
-        g.drawString("Press left arrow to graph y = x.", SCREEN_WIDTH - 250, SCREEN_YOFFSET);
-        g.drawString("Press right arrow to graph y = x^2.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
-        g.drawString("Press up arrow to graph y = sinx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 60);
-        g.drawString("Press down arrow to graph y = cosx.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 90);
-        */
+        // Displaying function value and derivative value for x input value given by user
+        g.setColor(Color.GREEN);
+        g.drawString("For x = " + f.getInputX() + " function value = " + f.calcFunction(f.getInputX()),SCREEN_WIDTH - 250, SCREEN_YOFFSET);
+        g.setColor(Color.RED);
+        g.drawString("For x = " + f.getInputX() + " derivative value = " + f.getDerivative(f.getInputX()), SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
+
 
         if(f.isDisplayArea())
         {
