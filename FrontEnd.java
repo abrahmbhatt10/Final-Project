@@ -69,6 +69,9 @@ public class FrontEnd extends JFrame implements ActionListener{
         // Drawing X-axis
         f.drawXAxis(g);
 
+        //Drawing Units
+        f.drawUnits(g);
+
         /*
         g.drawString("Press left arrow to graph y = x.", SCREEN_WIDTH - 250, SCREEN_YOFFSET);
         g.drawString("Press right arrow to graph y = x^2.", SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);

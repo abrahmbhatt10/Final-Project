@@ -18,7 +18,7 @@ public class PolynomialFunc extends MathFunction{
         pPower = new ArrayList<Integer>();
         dCoefficients = new ArrayList<Integer>();
         dPower = new ArrayList<Integer>();
-        super.setStartX(0);
+        super.setStartX(-100);
         super.setEndX(100);
         parsePolynomial(fStr);
         parseDerivative();

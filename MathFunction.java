@@ -62,11 +62,11 @@ public class MathFunction{
     {
         if(stringF.equals("sinx"))
         {
-            return window.getScreenHeight()* Math.sin(x/100);
+            return (window.getScreenHeight() / 3)* Math.sin(x/100);
         }
         else if(stringF.equals("cosx"))
         {
-            return 800 * Math.cos(x/100);
+            return (window.getScreenHeight() / 3) * Math.cos(x/100);
         }
         else if(stringF.equals("x"))
         {
@@ -99,6 +99,34 @@ public class MathFunction{
         g.drawLine(window.getScreenXoffset(),window.getOriginY(),window.getScreenWidth() - window.getScreenXoffset(), window.getOriginY());
         g.drawString("X - axis", window.getScreenXoffset()/2, window.getOriginY());
     }
+
+    public void drawUnits(Graphics g)
+    {
+        int xVal;
+        for(int i = 0; i < 100; i++)
+        {
+            xVal = i * (window.getWidth() / 100);
+            g.drawLine(xVal, (window.getOriginY() - 5), xVal, window.getOriginY() + 5);
+        }
+        int yVal;
+        for(int i = 0; i < 100; i++)
+        {
+            yVal = i * (window.getHeight() / 100);
+            g.drawLine(window.getOriginX() - 5, yVal, window.getOriginX() + 5, yVal);
+        }
+        // Telling user the unit increments
+        g.drawString("Unit: Window Height / 100 ", 15, 85);
+
+        // Key for which graph corresponds to what
+        g.setColor(Color.GREEN);
+        g.drawString("Function",30, 115);
+        g.fillRect(15, 105, 10, 10);
+        g.setColor(Color.RED);
+        g.drawString("Derivative",30, 135);
+        g.fillRect(15, 125, 10, 10);
+    }
+
+
     public void drawYAxis(Graphics g)
     {
         System.out.println("Drawing Y axis");
@@ -185,11 +213,23 @@ public class MathFunction{
 
     public int convertMathXToGraph(double xValue)
     {
-        if(window == null)
+        if(this.getStringF().equals("x") || this.getStringF().equals("sinx") || this.getStringF().equals("cosx"))
         {
-            return 0;
+            if(window == null)
+            {
+                return 0;
+            }
+            return (int) (window.getOriginX()+ (xValue));
         }
-        return (int) (window.getOriginX()+ (xValue));
+        else
+        {
+            if(window == null)
+            {
+                return 0;
+            }
+            return (int) (window.getOriginX()+ (xValue * 100));
+        }
+
     }
 
     public int convertMathYToGraph(double yValue)
