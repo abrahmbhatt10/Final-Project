@@ -2,6 +2,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GraphListener implements KeyListener {
+    // Instance Variables
     public static final int BALL_START_RADIUS = 25,
             BALL_START_X = 100,
             BALL_START_Y = 100,
@@ -11,8 +12,8 @@ public class GraphListener implements KeyListener {
     private MathFunction f;
 
     // Constructors
-    public GraphListener() {
-        window = new FrontEnd();
+    public GraphListener(FrontEnd window) {
+        this.window = window;
 
         // The addKeyListener method attaches to this KeyListener object
         // an object that implements the KeyListener interface (i.e. supplies the keyTyped, keyReleased, and keyPressed methods)
@@ -23,7 +24,7 @@ public class GraphListener implements KeyListener {
     }
 
     public static void main(String[] args) {
-        GraphListener glDemo = new GraphListener();
+        GraphSelection glDemo = new GraphSelection();
     }
 
     //////////////////////////////////////////////////////////////
@@ -46,7 +47,7 @@ public class GraphListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         // The keyCode lets you know which key was pressed
-        f = new MathFunction(1,1,1,1,1,1,"function", window);
+        f = new MathFunction("function", window);
         window.setF(f);
             switch(e.getKeyCode())
             {
@@ -63,28 +64,6 @@ public class GraphListener implements KeyListener {
                 case KeyEvent.VK_DOWN:
                     f.setStringF("cosx");
                     break;
-            /*
-                case KeyEvent.VK_UP:
-                int topOfPane = window.getInsets().top;
-                b.shiftY(-STEP_SIZE, topOfPane, FrontEnd.SCREEN_HEIGHT);
-                break;
-            case KeyEvent.VK_DOWN:
-                b.shiftY(STEP_SIZE, 0, FrontEnd.SCREEN_HEIGHT);
-                break;
-            case KeyEvent.VK_Z:
-                b.setCenter((int)(Math.random() * FrontEnd.SCREEN_WIDTH), (int)(Math.random() * FrontEnd.SCREEN_HEIGHT));
-                break;
-            case KeyEvent.VK_S:
-                b.setRadius(b.getRadius() / 2);
-                break;
-            case KeyEvent.VK_B:
-                b.setRadius(b.getRadius() * 2);
-                break;
-            case KeyEvent.VK_C:
-                b.setColor(Color.BLACK);
-                break;
-
-             */
             }
             window.repaint();
     }

@@ -1,24 +1,56 @@
-public class MathFunction extends Calculator{
+public class MathFunction{
+    // Instance Variables
     private String stringF;
     private FrontEnd window;
 
-    public MathFunction(double a, double b, double x, int n, int power, double c, String f, FrontEnd window) {
-        super(a, b, x, n, power, c);
+    private boolean displayArea = false;
+
+    // Constructor
+    public MathFunction(String f, FrontEnd window) {
         this.stringF = f;
         this.window = window;
     }
 
+    // Default Constructor
     public MathFunction()
     {
-        super(0,0,0,0,0,0);
-        stringF = null;
+        stringF = "x";
     }
 
+    public boolean isDisplayArea() {
+        return displayArea;
+    }
+
+    public void setDisplayArea(boolean displayArea) {
+        this.displayArea = displayArea;
+    }
+
+    // Finds a functions derivative
     public double getDerivative(double x){
         double dx = 0.001;
         return (this.calcFunction(x + dx) - this.calcFunction(x)) / dx;
     }
 
+    // Finds a Reimann Sum for a large value of n
+    public double getAreaUnderTheCurve(double a, double b)
+    {
+        int reimannSum = 0;
+        for(int i = 0; i < 100000; i++)
+        {
+            reimannSum += this.calcFunction(a + i*((b-a)/100000)) * ((b-a)/100000);
+        }
+        return reimannSum;
+    }
+
+    // Returns nth factorial of the parameter int n\
+    public double getFactorial(int n)
+    {
+        if(n >= 1)
+        {
+            return 1;
+        }
+        return n * getFactorial(n - 1);
+    }
 
     public double calcFunction(double x)
     {
@@ -59,6 +91,4 @@ public class MathFunction extends Calculator{
     public void setStringF(String f) {
         this.stringF = f;
     }
-
-
 }
