@@ -1,10 +1,13 @@
-import java.util.ArrayList;
-import java.util.regex.*;
 /*
 Name: Agastya-Brahmbhatt
 Date: 4/27/2024
 CS2 Final Project: Graphs
+Polynomial function is a child class of the math function class.
+It allows for custom user input polynomials to be processed.
  */
+
+import java.util.ArrayList;
+import java.util.regex.*;
 public class PolynomialFunc extends MathFunction{
     ArrayList<Integer> pCoefficients;
     ArrayList<Integer> pPower;

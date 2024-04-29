@@ -10,22 +10,13 @@ public class MathFunction{
     // Instance Variables
     private String stringF;
     private FrontEnd window;
-
     private boolean displayArea = false;
-
     private double startX, endX, dx;
     private double inputX;
 
     // Constructor
-    public MathFunction(String fStr, FrontEnd window) {
-        this.stringF = fStr;
-        this.window = window;
-        this.startX = 0;
-        this.endX = window.getScreenHeight() - window.getScreenYoffset();
-        this.dx = 10;
-    }
     public MathFunction(FrontEnd window) {
-        stringF = "x"; this.startX = 0; this.endX = 1000; this.dx = 10;
+        stringF = "x"; this.startX = 0; this.endX = 1000; this.dx = 0.0001;
         this.window = window;
         this.endX = window.getScreenHeight() - window.getScreenYoffset();
     }
@@ -45,10 +36,6 @@ public class MathFunction{
         this.inputX = inputX;
     }
 
-    public FrontEnd getWindow() {
-        return window;
-    }
-
     public void setWindow(FrontEnd window) {
         this.window = window;
     }
@@ -63,7 +50,6 @@ public class MathFunction{
 
     // Finds a functions derivative
     public double getDerivative(double x){
-        double dx = 0.001;
         return (this.calcFunction(x + dx) - this.calcFunction(x)) / dx;
     }
 
@@ -222,23 +208,18 @@ public class MathFunction{
 
     public int convertMathXToGraph(double xValue)
     {
+        if(window == null)
+        {
+            return 0;
+        }
         if(this.getStringF().equals("x") || this.getStringF().equals("sinx") || this.getStringF().equals("cosx"))
         {
-            if(window == null)
-            {
-                return 0;
-            }
             return (int) (window.getOriginX()+ (xValue));
         }
         else
         {
-            if(window == null)
-            {
-                return 0;
-            }
             return (int) (window.getOriginX()+ (xValue * 100));
         }
-
     }
 
     public int convertMathYToGraph(double yValue)
@@ -250,16 +231,8 @@ public class MathFunction{
         return (int)(window.getOriginY()- (yValue));
     }
 
-    public double getEndX() {
-        return endX;
-    }
-
     public void setEndX(double endX) {
         this.endX = endX;
-    }
-
-    public double getStartX() {
-        return startX;
     }
 
     public void setStartX(double startX) {

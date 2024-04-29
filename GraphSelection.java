@@ -2,12 +2,26 @@
 Name: Agastya-Brahmbhatt
 Date: 4/27/2024
 CS2 Final Project: Graphs
+
+The first window that pops up for the user to input different selections is GraphSelection.
+t has the main function.
+The menu displayed is:
+Select a graph to display a function and its derivative:
+        f(x) = x
+        f(x) = x^2
+        f(x) = sinx
+        f(x) = cosx
+        Custom polynomial 6x^3+5x^2+2x^1+21
+        Display Area Under Graph Too
+        10
+        Input x value of interest
+        Display Graph (invokes the front end window)
  */
 
 import javax.swing.*;
 import java.awt.event.*;
 
-// Cited Source: https://www.javatpoint.com/java-jcheckbox
+// Cited Source: https://www.javatpoint.com/java-jcheckbox, JRadioButton, JButton, JTextField, JLabel, etc.
 public class GraphSelection extends JFrame implements ActionListener {
     JLabel l;
     JRadioButton rb1,rb2,rb3,rb4, rb5;
@@ -19,6 +33,7 @@ public class GraphSelection extends JFrame implements ActionListener {
     JTextField inputX;
     JLabel l1;
 
+    // Constructor
     public GraphSelection(){
         l=new JLabel("Select a graph to display a function and its derivative: ");
         l.setBounds(50,50,300,20);
@@ -53,10 +68,7 @@ public class GraphSelection extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public FrontEnd getWindow() {
-        return window;
-    }
-
+    // Does action performed of action event e
     public void actionPerformed(ActionEvent e){
         if(this.window == null) {
             this.window = new FrontEnd();

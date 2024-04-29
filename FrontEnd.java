@@ -2,7 +2,12 @@
 Name: Agastya-Brahmbhatt
 Date: 4/27/2024
 CS2 Final Project: Graphs
+This is the front end window which displays the actual results of the inputs
+The results are function graph, and derivative graph, and the area under the curve.
+It also displays for an input x value, values of its function and derivative.
+It parses the polynomial functions and two trig functions of sinx and cosx.
  */
+// Importing libraries
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,20 +19,14 @@ public class FrontEnd extends JFrame implements ActionListener{
     public static int SCREEN_HEIGHT = 1000;
     public static int SCREEN_XOFFSET = 100;
     public static int SCREEN_YOFFSET = 100;
-
-    private JButton bGoBack;
     GraphSelection gsWindow;
     private MathFunction f;
-
     double dx;
     double x;
-    double y;
-    double x1;
-    double y1;
     int originX;
     int originY;
 
-
+// Constructor
     public FrontEnd() {
         this.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         this.setLocationRelativeTo(null);
@@ -44,10 +43,7 @@ public class FrontEnd extends JFrame implements ActionListener{
         add(bGoBack);
     }
 
-    public GraphSelection getGsWindow() {
-        return gsWindow;
-    }
-
+    // Sets the Gs window
     public void setGsWindow(GraphSelection gsWindow) {
         this.gsWindow = gsWindow;
     }
@@ -78,7 +74,7 @@ public class FrontEnd extends JFrame implements ActionListener{
         g.setColor(Color.RED);
         g.drawString("For x = " + f.getInputX() + " derivative value = " + f.getDerivative(f.getInputX()), SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
 
-
+        // Displays area of fucntion f
         if(f.isDisplayArea())
         {
             f.paintArea(g);
@@ -100,56 +96,44 @@ public class FrontEnd extends JFrame implements ActionListener{
         g.setColor(Color.BLACK);
     }
 
-    public int convertMathXToGraph(double xValue)
-    {
-        return (int) (originX + (xValue));
-    }
 
-    public int convertMathYToGraph(double yValue)
-    {
-        return (int)(originY - (yValue));
-    }
-
-    public MathFunction getF() {
-        return f;
-    }
-
+    // Sets function f to a function inputted
     public void setF(MathFunction f) {
         this.f = f;
     }
 
+
+    // Gets Screen width
     public static int getScreenWidth() {
         return SCREEN_WIDTH;
     }
 
+    // Gets the screen hiehgt
     public static int getScreenHeight() {
         return SCREEN_HEIGHT;
     }
 
+    // Gets the screen x offset value
     public static int getScreenXoffset() {
         return SCREEN_XOFFSET;
     }
 
+    // Gets the screen y offset value
     public static int getScreenYoffset() {
         return SCREEN_YOFFSET;
     }
 
+    // Gets the origin of x
     public int getOriginX() {
         return originX;
     }
 
-    public void setOriginX(int originX) {
-        this.originX = originX;
-    }
-
+    // Gets the origin of y
     public int getOriginY() {
         return originY;
     }
 
-    public void setOriginY(int originY) {
-        this.originY = originY;
-    }
-
+    // Performs action of action event e
     public void actionPerformed(ActionEvent e){
         if(gsWindow == null)
         {
