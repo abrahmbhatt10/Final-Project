@@ -202,7 +202,7 @@ public class MathFunction{
             g.setColor(Color.BLACK);
             g.drawRect(convertMathXToGraph(x2), convertMathYToGraph(calcFunction(x2)), reimannW, (int)calcFunction(x2));
             g.setColor(Color.ORANGE);
-            g.fillRect(convertMathXToGraph(x2)+10, convertMathYToGraph(calcFunction(x2))-10, reimannW+10, (int)calcFunction(x2)-10);
+            g.fillRect(convertMathXToGraph(x2), convertMathYToGraph(calcFunction(x2)), reimannW, (int)calcFunction(x2));
         }
     }
 
