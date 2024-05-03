@@ -27,6 +27,10 @@ public class PolynomialFunc extends MathFunction{
         parseDerivative();
     }
 
+    /*
+    To write the polynomial parser equation, I used code from this website: https://www.javatpoint.com/regular-expression
+     */
+
     public void parsePolynomial(String fStr)
     {
         String pHeader = "polynomial ";
