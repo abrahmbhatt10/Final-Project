@@ -91,20 +91,20 @@ public class MathFunction{
             return;
         }
         g.setColor(Color.BLACK);
-        g.drawLine(window.getScreenXoffset(),window.getOriginY(),window.getScreenWidth() - window.getScreenXoffset(), window.getOriginY());
+        g.drawLine(0,window.getOriginY(),window.getScreenWidth(), window.getOriginY());
         g.drawString("X - axis", window.getScreenXoffset()/2, window.getOriginY());
     }
 
     public void drawUnits(Graphics g)
     {
         int xVal;
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < window.getScreenWidth() * 100; i++)
         {
             xVal = i * (window.getWidth() / 100);
             g.drawLine(xVal, (window.getOriginY() - 5), xVal, window.getOriginY() + 5);
         }
         int yVal;
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < window.getScreenHeight() * 100; i++)
         {
             yVal = i * (window.getHeight() / 100);
             g.drawLine(window.getOriginX() - 5, yVal, window.getOriginX() + 5, yVal);
@@ -134,7 +134,7 @@ public class MathFunction{
             return;
         }
         g.setColor(Color.BLACK);
-        g.drawLine(window.getOriginX(),window.getScreenYoffset(), window.getOriginX(), window.getScreenHeight() - window.getScreenYoffset());
+        g.drawLine(window.getOriginX(),0, window.getOriginX(), window.getScreenHeight());
         g.drawString("Y - axis", window.getOriginX()-20,window.getScreenYoffset());
     }
 
