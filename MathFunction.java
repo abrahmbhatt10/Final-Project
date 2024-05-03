@@ -50,6 +50,14 @@ public class MathFunction{
 
     // Finds a functions derivative
     public double getDerivative(double x){
+        if(stringF.equals("sinx"))
+        {
+            return (window.getScreenHeight() / 3) * Math.cos(x / 100);
+        }
+        else if(stringF.equals("cosx"))
+        {
+            return -1 * (window.getScreenHeight() / 3) * Math.sin(x / 100);
+        }
         return (this.calcFunction(x + dx) - this.calcFunction(x)) / dx;
     }
 
