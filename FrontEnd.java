@@ -69,10 +69,12 @@ public class FrontEnd extends JFrame implements ActionListener{
         f.drawUnits(g);
 
         // Displaying function value and derivative value for x input value given by user
-        g.setColor(Color.GREEN);
-        g.drawString("For x = " + f.getInputX() + " function value = " + f.calcFunction(f.getInputX()),SCREEN_WIDTH - 250, SCREEN_YOFFSET);
+        g.setColor(Color.BLACK);
+        g.drawString("       For x value = " + f.getInputX(),SCREEN_WIDTH - 250, SCREEN_YOFFSET);
+        g.setColor(Color.BLUE);
+        g.drawString("  Function value = " + f.calcFunction(f.getInputX()),SCREEN_WIDTH - 250, SCREEN_YOFFSET+30);
         g.setColor(Color.RED);
-        g.drawString("For x = " + f.getInputX() + " derivative value = " + f.getDerivative(f.getInputX()), SCREEN_WIDTH - 250, SCREEN_YOFFSET + 30);
+        g.drawString("Derivative value = " + f.getDerivative(f.getInputX()), SCREEN_WIDTH - 250, SCREEN_YOFFSET + 60);
 
         // Displays area of fucntion f
         if(f.isDisplayArea())

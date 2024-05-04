@@ -11,12 +11,12 @@ public class MathFunction{
     private String stringF;
     private FrontEnd window;
     private boolean displayArea = false;
-    private double startX, endX, dx;
+    private double startX = -1000, endX=1000, dx;
     private double inputX;
 
     // Constructor
     public MathFunction(FrontEnd window) {
-        stringF = "x"; this.startX = 0; this.endX = 1000; this.dx = 0.0001;
+        stringF = "x"; this.startX = -1000; this.endX = 1000; this.dx = 0.0001;
         this.window = window;
         this.endX = window.getScreenHeight() - window.getScreenYoffset();
     }
@@ -24,7 +24,7 @@ public class MathFunction{
     // Default Constructor
     public MathFunction()
     {
-        stringF = "x"; this.startX = 0; this.endX = 1000; this.dx = 0.01;
+        stringF = "x"; this.startX = -1000; this.endX = 1000; this.dx = 0.01;
         window = null;
     }
 
@@ -57,6 +57,10 @@ public class MathFunction{
         else if(stringF.equals("cosx"))
         {
             return -1 * (window.getScreenHeight() / 3) * Math.sin(x / 100);
+        }
+        else if(stringF.equals("x"))
+        {
+            return 1;
         }
         return (this.calcFunction(x + dx) - this.calcFunction(x)) / dx;
     }
@@ -121,7 +125,8 @@ public class MathFunction{
         g.drawString("Unit: Window Height / 100 ", 15, 85);
 
         // Key for which graph corresponds to what
-        g.setColor(Color.GREEN);
+        g.setColor(Color.BLUE);
+        g.drawString("Function",30, 115);
         g.drawString("Function",30, 115);
         g.fillRect(15, 105, 10, 10);
         g.setColor(Color.RED);
@@ -153,7 +158,7 @@ public class MathFunction{
             return;
         }
         double x, x1, y, y1;
-        g.setColor(Color.GREEN);
+        g.setColor(Color.BLUE);
         // Drawing function
         System.out.println("Drawing " + getStringF());
         x = startX;
@@ -220,7 +225,7 @@ public class MathFunction{
         {
             return 0;
         }
-        if(this.getStringF().equals("x") || this.getStringF().equals("sinx") || this.getStringF().equals("cosx"))
+        if(this.getStringF().equals("x") || this.getStringF().equals("x^2") ||this.getStringF().equals("sinx") || this.getStringF().equals("cosx"))
         {
             return (int) (window.getOriginX()+ (xValue));
         }
