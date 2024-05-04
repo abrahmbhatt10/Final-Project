@@ -15,8 +15,9 @@ import java.awt.event.ActionListener;
 
 public class FrontEnd extends JFrame implements ActionListener{
     // Instance Variables
-    public static int SCREEN_WIDTH = 1000;
-    public static int SCREEN_HEIGHT = 1000;
+    public static int SCREEN_MAX = 1000;
+    public static int SCREEN_WIDTH = SCREEN_MAX;
+    public static int SCREEN_HEIGHT = SCREEN_MAX;
     public static int SCREEN_XOFFSET = 100;
     public static int SCREEN_YOFFSET = 100;
     GraphSelection gsWindow;
@@ -41,6 +42,11 @@ public class FrontEnd extends JFrame implements ActionListener{
         bGoBack.setBounds(10,10,200,30);
         bGoBack.addActionListener(this);
         add(bGoBack);
+    }
+
+    // Returns SCREEN_MAX value used to set start and end range for MathFunctions
+    public static int getScreenMax() {
+        return SCREEN_MAX;
     }
 
     // Sets the Gs window

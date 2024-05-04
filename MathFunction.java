@@ -16,9 +16,10 @@ public class MathFunction{
 
     // Constructor
     public MathFunction(FrontEnd window) {
-        stringF = "x"; this.startX = -1000; this.endX = 1000; this.dx = 0.0001;
+        stringF = "x";  this.dx = 0.0001;
         this.window = window;
-        this.endX = window.getScreenHeight() - window.getScreenYoffset();
+        this.startX = (-1)* window.getScreenMax();
+        this.endX = window.getScreenMax();
     }
 
     // Default Constructor
