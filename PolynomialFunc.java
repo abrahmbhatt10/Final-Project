@@ -129,6 +129,7 @@ public class PolynomialFunc extends MathFunction{
                 pCoefficients.add(1);
             }
         }
+        // System console print messages to debug
         for(int j = 0; j < pCoefficients.size() && j < pPower.size(); j++)
         {
             System.out.println("pCoefficient " + pCoefficients.get(j) + " power " + pPower.get(j));
