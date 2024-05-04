@@ -186,7 +186,7 @@ public class PolynomialFunc extends MathFunction{
         {
             retValue += pCoefficients.get(i)* Math.pow(x, pPower.get(i));
         }
-        System.out.println("X value "+x+" function "+retValue);
+        // System.out.println("X value "+x+" function "+retValue);
         return retValue;
     }
     public double getDerivative(double x)
@@ -203,5 +203,10 @@ public class PolynomialFunc extends MathFunction{
         }
         return retValue;
     }
-
+    public int convertMathXToGraph(double xValue)
+    {
+            // This helps zoom in on high level polynomial functions
+            if(pPower.getFirst() >= 3) return (int) (super.getWindow().getOriginX() + (xValue * 100));
+            return (int) (super.getWindow().getOriginX() + (xValue));
+    }
 }

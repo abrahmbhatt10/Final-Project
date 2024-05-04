@@ -40,6 +40,8 @@ public class MathFunction{
         this.window = window;
     }
 
+    public FrontEnd getWindow() {return this.window;}
+
     public boolean isDisplayArea() {
         return displayArea;
     }
@@ -225,14 +227,9 @@ public class MathFunction{
         {
             return 0;
         }
-        if(this.getStringF().equals("x") || this.getStringF().equals("x^2") ||this.getStringF().equals("sinx") || this.getStringF().equals("cosx"))
-        {
-            return (int) (window.getOriginX()+ (xValue));
-        }
-        else
-        {
-            return (int) (window.getOriginX()+ (xValue * 100));
-        }
+
+        return (int) (window.getOriginX()+ (xValue));
+
     }
 
     public int convertMathYToGraph(double yValue)
