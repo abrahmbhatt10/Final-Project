@@ -4,7 +4,7 @@ Date: 4/27/2024
 CS2 Final Project: Graphs
 Polynomial function is a child class of the math function class.
 It allows for custom user input polynomials to be processed.
- */
+*/
 
 import java.util.ArrayList;
 import java.util.regex.*;
@@ -28,6 +28,9 @@ public class PolynomialFunc extends MathFunction{
     /*
     To write the polynomial parser equation, I used code from this website:
     https://www.w3schools.com/java/java_regex.asp
+    Using split strings - requires users to separate out terms with space
+    The term separator makes the parser easier to handle varying situations
+    https://www.geeksforgeeks.org/split-string-java-examples/
     */
 
     public void parsePolynomial(String fStr)
