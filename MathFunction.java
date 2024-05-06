@@ -171,6 +171,7 @@ public class MathFunction{
             x1 = x + dx;
             y1 = calcFunction(x1);
             g.drawLine(convertMathXToGraph(x), convertMathYToGraph(y), convertMathXToGraph(x1), convertMathYToGraph(y1));
+            // System.out.println("Drawline "+x1+" "+y1);
             x = x1;
             y = y1;
             if(x > endX)
@@ -228,9 +229,7 @@ public class MathFunction{
         {
             return 0;
         }
-
         return (int) (window.getOriginX()+ (xValue));
-
     }
 
     public int convertMathYToGraph(double yValue)

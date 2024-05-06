@@ -1,4 +1,5 @@
 public class TrigFunc extends MathFunction{
+    private double prevX;
     public TrigFunc(FrontEnd window) {
         super.setWindow(window);
     }
@@ -27,23 +28,20 @@ public class TrigFunc extends MathFunction{
         }
         return 0.0;
     }
-
     public int convertMathXToGraph(double xValue)
     {
         if(super.getWindow() == null)
         {
-            return 0;
+            return (int)xValue;
         }
-        return (int)(super.getWindow().getOriginX() + (xValue));
+        return (int) (super.getWindow().getOriginX()+ (xValue*super.getWindow().getScreenXoffset()));
     }
-
     public int convertMathYToGraph(double yValue)
     {
         if(super.getWindow() == null)
         {
-            return 0;
+            return (int)yValue;
         }
-        return (int)((super.getWindow().getScreenHeight() / 3) * (super.getWindow().getOriginY() - (yValue)));
+        return (int)((super.getWindow().getOriginY() - (yValue * (super.getWindow().getScreenHeight() / 3))));
     }
-
 }
