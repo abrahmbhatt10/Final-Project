@@ -1,3 +1,11 @@
+/*
+Name: Agastya-Brahmbhatt
+Date: 4/27/2024
+CS2 Final Project: Graphs
+This is TrigFunc child class of the parent class MathFunction
+It allows for sin and cos functions to be zoomed in for better graphics by default
+This is achieved by the convertMathXToGraph and convertMathYToGraph functions
+ */
 public class TrigFunc extends MathFunction{
      public TrigFunc(FrontEnd window) {
         super.setWindow(window);

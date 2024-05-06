@@ -26,7 +26,8 @@ public class PolynomialFunc extends MathFunction{
     }
 
     /*
-    To write the polynomial parser equation, I used code from this website: https://www.w3schools.com/java/java_regex.asp
+    To write the polynomial parser equation, I used code from this website:
+    https://www.w3schools.com/java/java_regex.asp
     */
 
     public void parsePolynomial(String fStr)
