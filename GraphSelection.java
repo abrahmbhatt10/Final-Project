@@ -92,12 +92,12 @@ public class GraphSelection extends JFrame implements ActionListener {
             window.setF(f);
         }
         if(rb3.isSelected()){
-            f = new MathFunction(window);
+            f = new TrigFunc(window);
             f.setStringF("sinx");
             window.setF(f);
         }
         if(rb4.isSelected()){
-            f = new MathFunction(window);
+            f = new TrigFunc(window);
             f.setStringF("cosx");
             window.setF(f);
         }

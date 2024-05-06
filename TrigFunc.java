@@ -1,6 +1,18 @@
 public class TrigFunc extends MathFunction{
     public TrigFunc(FrontEnd window) {
-        super(window);
+        super.setWindow(window);
+    }
+
+    public double getDerivative(double x){
+        if(super.getStringF().equals("sinx"))
+        {
+            return Math.cos(x);
+        }
+        else if(super.getStringF().equals("cosx"))
+        {
+            return -1 * Math.sin(x);
+        }
+        return 0.0;
     }
 
     public double calcFunction(double x)
