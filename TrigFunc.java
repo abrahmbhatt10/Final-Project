@@ -1,6 +1,5 @@
 public class TrigFunc extends MathFunction{
-    private double prevX;
-    public TrigFunc(FrontEnd window) {
+     public TrigFunc(FrontEnd window) {
         super.setWindow(window);
     }
 
